@@ -1,33 +1,114 @@
 // Tutorials on Regular expressions
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions 
 // https://flaviocopes.com/javascript-regular-expressions/
-function selectF(){
-    document.getElementById("b").innerHTML = "Frank";
+function selectO(){
+    document.getElementById("f").innerHTML = "Outdoor";
 }
 
-function selectG(){
-    document.getElementById("b").innerHTML = "George";
+function selectA(){
+    document.getElementById("f").innerHTML = "Outdoor(artificial)";
 }
 
-function selectJ(){
-    document.getElementById("b").innerHTML = "Juan";
+function selectI(){
+    document.getElementById("f").innerHTML = "Indoor";
 }
 
-function selectRC(){
-    document.getElementById("s").innerHTML = "Regular cut";
+function selectUC(){
+    document.getElementById("c").innerHTML = "U18s comp";
 }
 
-function selectFade(){
-    document.getElementById("s").innerHTML = "Fade";
+function selectUR(){
+    document.getElementById("c").innerHTML = "U18s rec";
 }
 
-function selectBT(){
-    document.getElementById("s").innerHTML = "Beard trim";
+function selectAC(){
+    document.getElementById("c").innerHTML = "Adults comp";
 }
 
-function selectSD(){
-    document.getElementById("s").innerHTML = "Special design";
+function selectAR(){
+    document.getElementById("c").innerHTML = "Adults rec";
 }
+
+function selectS(){
+    document.getElementById("c").innerHTML = "Seniors";
+}
+
+function selectBR(){
+    document.getElementById("UC").innerHTML = "Boys regional";
+}
+
+function selectB1(){
+    document.getElementById("UC").innerHTML = "Boys tier1";
+}
+
+function selectB2(){
+    document.getElementById("UC").innerHTML = "Boys tier2";
+}
+
+function selectB3(){
+    document.getElementById("UC").innerHTML = "Boys tier3";
+}
+
+function selectGR(){
+    document.getElementById("UC").innerHTML = "Girls regional";
+}
+
+function selectG1(){
+    document.getElementById("UC").innerHTML = "Girls tier1";
+}
+
+function selectG2(){
+    document.getElementById("UC").innerHTML = "Girls tier2";
+}
+
+function selectG3(){
+    document.getElementById("UC").innerHTML = "Girls tier3";
+}
+
+function selectBG1(){
+    document.getElementById("UR").innerHTML = "U18 rec1";
+}
+
+function selectBG2(){
+    document.getElementById("UR").innerHTML = "U18 rec2";
+}
+
+function selectBG3(){
+    document.getElementById("UR").innerHTML = "U18 rec3";
+}
+
+function selectMR(){
+    document.getElementById("AC").innerHTML = "Men's regional";
+}
+
+function selectM1(){
+    document.getElementById("AC").innerHTML = "Men's tier1";
+}
+
+function selectM2(){
+    document.getElementById("AC").innerHTML = "Men's tier2";
+}
+
+function selectM3(){
+    document.getElementById("AC").innerHTML = "Men's tier3";
+}
+
+function selectWR(){
+    document.getElementById("AC").innerHTML = "Women's regional";
+}
+
+function selectW1(){
+    document.getElementById("AC").innerHTML = "Women's tier1";
+}
+
+function selectMW1(){
+    document.getElementById("AR").innerHTML = "Adult's rec1";
+}
+
+function selectMW2(){
+    document.getElementById("AR").innerHTML = "Adult's rec2";
+}
+
 
 function validateName(nm){
     var m = document.getElementById(nm).value;
@@ -70,30 +151,30 @@ function validateCredit(cred) {
     }
 }
 
-var unavailableF = ["07/01/2020","12/25/2020"]
-var unavailableG = ["07/01/2020","07/02/2020","07/03/2020","07/04/2020","07/05/2020","07/18/2020","09/30/2020","12/25/2020"]
-var unavailableJ = ["08/03/2020","07/01/2020","07/10/2020","08/15/2020","08/16/2020","12/25/2020"]
+var unavailableO = ["07/01/2020","12/25/2020"]
+var unavailableA = ["07/01/2020","07/02/2020","07/03/2020","07/04/2020","07/05/2020","07/18/2020","09/30/2020","12/25/2020"]
+var unavailableI = ["08/03/2020","07/01/2020","07/10/2020","08/15/2020","08/16/2020","12/25/2020"]
 const setDateFormat = "mm/dd/yy";
 
-function disableDatesF(date) {
+function disableDatesO(date) {
     if (date.getDay() == 0)
         return [false];
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
-    return [ unavailableF.indexOf(string) == -1 ]
+    return [ unavailableO.indexOf(string) == -1 ]
 }  
 
-function disableDatesG(date) {
+function disableDatesA(date) {
     if (date.getDay() == 0)
         return [false];
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
-    return [ unavailableG.indexOf(string) == -1 ]
+    return [ unavailableA.indexOf(string) == -1 ]
 }  
 
-function disableDatesJ(date) {
+function disableDatesI(date) {
     if (date.getDay() == 0)
         return [false];
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
-    return [ unavailableJ.indexOf(string) == -1 ]
+    return [ unavailableI.indexOf(string) == -1 ]
 }  
 
 $(document).ready(function(){
@@ -101,37 +182,89 @@ $(document).ready(function(){
     $("#book").hide();
 
     $("#chooseTxt").hide();
-    $("#bookF").hide();
-    $("#bookG").hide();
-    $("#bookJ").hide();
+    $("#bookO").hide();
+    $("#bookA").hide();
+    $("#bookI").hide();
+
+    $("#ucomp").hide();
+    $("#urec").hide();
+    $("#acomp").hide();
+    $("#arec").hide();
+    $("#age").hide();
+    $("#reg").hide();
 
     $('[data-toggle="tooltip"]').tooltip();   
 
-    $("#f").on("click", function(){
-        $("#chooseTxt").show();
-        $("#bookF").show();
-        $("#bookG").hide();
-        $("#bookJ").hide();
+    $("#uc").on("click", function(){
+        $("#ucomp").show();
+        $("#urec").hide();
+        $("#acomp").hide();
+        $("#arec").hide();
+        $("#age").show();
+        $("#reg").hide();
+    });
+
+    $("#ur").on("click", function(){
+        $("#ucomp").hide();
+        $("#urec").show();
+        $("#acomp").hide();
+        $("#arec").hide();
+        $("#age").show();
+        $("#reg").hide();
 
     });
 
-    $("#g").on("click", function(){
-        $("#chooseTxt").show();
-        $("#bookG").show();
-        $("#bookF").hide();
-        $("#bookJ").hide();
+    $("#ac").on("click", function(){
+        $("#ucomp").hide();
+        $("#urec").hide();
+        $("#acomp").show();
+        $("#arec").hide();
+        $("#age").hide();
+        $("#reg").hide();
 
     });
 
-    $("#j").on("click", function(){
-        $("#chooseTxt").show();
-        $("#bookJ").show();
-        $("#bookG").hide();
-        $("#bookF").hide();
+    $("#ar").on("click", function(){
+        $("#ucomp").hide();
+        $("#urec").hide();
+        $("#acomp").hide();
+        $("#arec").show();
+        $("#age").hide();
+        $("#reg").hide();
 
     });
 
+    $("#o").on("click", function(){
+        $("#chooseTxt").show();
+        $("#bookO").show();
+        $("#bookA").hide();
+        $("#bookI").hide();
 
+    });
+
+    $("#a").on("click", function(){
+        $("#chooseTxt").show();
+        $("#bookA").show();
+        $("#bookO").hide();
+        $("#bookI").hide();
+
+    });
+
+    $("#i").on("click", function(){
+        $("#chooseTxt").show();
+        $("#bookI").show();
+        $("#bookA").hide();
+        $("#bookO").hide();
+
+    });
+
+    $("#appt2").mouseenter(function(){
+        if ((validateEmail("email2") && validateNumber("number2") && validateCredit("credit2") && validateName("name2"))==true){
+            $("#reg").show();
+
+        }
+    });
+    
     $("#appt").mouseenter(function(){
         if ((validateEmail("email") && validateNumber("number") && validateCredit("credit") && validateName("name"))==true){
             $("#book").show();
@@ -139,8 +272,58 @@ $(document).ready(function(){
         }
     });
 
+    $("#reg").on("click", function(){
+        alert("Your registration has been confirmed!");
+    });
+
+
     $("#book").on("click", function(){
         alert("Your booking has been confirmed!");
+    });
+
+    $("#name2").keyup(function(){
+        if (!validateName("name2")){
+            
+            $("#name2").css("background-color", "pink");
+ 
+        }
+        else {
+            $("#name2").css("background-color", "lightgreen");
+        }
+    });
+
+    $("#email2").keyup(function(){
+        if (!validateEmail("email2")){
+            
+            $("#email2").css("background-color", "pink");
+ 
+        }
+        else {
+            $("#email2").css("background-color", "lightgreen");
+        }
+    });
+
+    $("#number2").keyup(function(){
+        if (!validateNumber("number2")){
+            
+            $("#number2").css("background-color", "pink");
+            
+        }
+        else {
+            $("#number2").css("background-color", "lightgreen");
+            
+        }
+    });
+
+    $("#credit2").keyup(function(){
+        if (!validateCredit("credit2")){
+            
+            $("#credit2").css("background-color", "pink");
+            
+        }
+        else {
+            $("#credit2").css("background-color", "lightgreen");
+        }
     });
   
     $("#name").keyup(function(){
@@ -188,7 +371,7 @@ $(document).ready(function(){
         }
     });
 
-    $("#bookF").datepicker(
+    $("#bookO").datepicker(
         {
             dateFormat: setDateFormat,
             
@@ -196,12 +379,12 @@ $(document).ready(function(){
             maxDate: '+6M',
             
             beforeShowDay: $.datepicker.noWeekends,
-            beforeShowDay: disableDatesF,
+            beforeShowDay: disableDatesO,
        
         }   
     );
 
-    $("#bookG").datepicker(
+    $("#bookA").datepicker(
         {
             dateFormat: setDateFormat,
             
@@ -209,12 +392,12 @@ $(document).ready(function(){
             maxDate: '+6M',
             
             beforeShowDay: $.datepicker.noWeekends,
-            beforeShowDay: disableDatesG,
+            beforeShowDay: disableDatesA,
        
         }   
     );
 
-    $("#bookJ").datepicker(
+    $("#bookI").datepicker(
         {
             dateFormat: setDateFormat,
             
@@ -222,7 +405,7 @@ $(document).ready(function(){
             maxDate: '+6M',
             
             beforeShowDay: $.datepicker.noWeekends,
-            beforeShowDay: disableDatesJ,
+            beforeShowDay: disableDatesI,
        
         }   
     );
